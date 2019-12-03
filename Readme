@@ -1,0 +1,35 @@
+Deaconu Andreea-Carina  
+334CC 
+  
+    Tema 1 EGC - Flappy Bird 
+  
+    Ca implementare am pornit de la laboratorul 3 rezolvat. In CreatePrimitives am scris functii pentru crearea: unui dreptunghi, unui cerc si unui triunghi, asemanatoare cu functia deja existenta CreateSquare. 
+Cu tasta R se reseteaza jocul, iar cu Q se inchide. 
+  
+Desenarea pasarii:  
+    Pasarea are corpul (body) in forma de cerc, capul (head) in forma de cerc si ciocul (beak) in forma de triunghi. Pentru corp calculez coordonatele centrului in functie de rezolutia ecranului. Dimensiunile si pozitiile capului si ciocului depinde de cele ale corpului. Apoi calculez pozitia si raza cercului care aproximeaza pasarea. 
+  
+Miscarea scenei: 
+rectangleHeights - lista cu elemente de tip float in care se retine inaltimea fiecarui dreptunghi din partea de jos care apare in scena. Initial, toate sunt 0. Inaltimea dreptunghiului de sus este calculat la randare; 
+rectangleWidth - latimea unui dreptunghi; 
+betweenRectangles - spatiul dintre doua perechi de dreptunghiuri ; 
+squareSide - dimensiunea un patrat folosit pentru design-ul obstacolelor; 
+obstacleSpeed - viteza cu care se deplaseaza scena; 
+remainingSpace - spatiul din dreapta jos ce se mareste pe masura ce se deplaseaza scena, in functie de viteza; 
+    Cand in dreapta ramane suficient spatiu pentru a mai adauga un obstacol, dreptunghiul cel mai din stanga a parasit scena si ii scot inaltimea din lista, adaugand alta la inceputul listei, calculata cu rand(). 
+    Pentru afisare, iterez prin lista, updatand o variabila index ce retine la al catalea element sunt. Dreptunghiul creat initial in Init() are latimea rectangleWidth, inaltimea 1 si coltul din stanga jos se afla la (resolution.x - rectangleWidth, 0). Deci, pentru a afisa fiecare dreptunghi, intai el trebuie scalat cu inaltimea lui, apoi translatat spre stanga in functie de remainingSpace, indexul sau din lista inmultit cu latimea unui dreptunghi si spatiul dintre 2 perechi.  
+    Inaltimea dreptunghiului de sus este calculata scazand din rezolutia ecranului inaltimea dreptunghiului de jos si lasand un spatiu suficient de mare incat pasarea sa treaca printre ele. 
+  
+Miscarea pasarii: 
+    Pasarea are o viteza si o acceleratie. In joc exista si gravitatie, de o valoare fixa. Acceleratia pasarii creste pana ajunge egala cu gravitatia. Viteza creste cu acceleratia, iar distanta cu care pasarea se translateaza pe OY in jos creste odata cu viteza. Inclinarea in jos poate fi de maxim 45 grade. 
+    La apasarea SPACE pasarea se translateaza in sus pe OY, se roteste in sus (pana la maxim 45 grade), se reseteaza viteza si acceleratia (ea incepe sa se modifice cand pasarea cade). 
+  
+Detectarea coliziunii: 
+    Pasarea a suferit coliziuni daca a iesit din limitele ecranului sau s-a lovit de un dreptunghi. Verific ciocnirea dintre cercul care aproximeaza pasarea si un obstacol in functia BirdHasCollided(). Intai calculez cel mai aproapiat punct al dreptunghiului de centrul cercului care aproximeaza pasarea, apoi distanta dintre el si centru cercului si vad daca este mai mica decat raza cercului, caz in care s-au ciocnit. 
+  
+Updatarea scorului: 
+    Initial, scorul e 0, iar acesta se mareste pe masura ce trece timpul si pasarea nu a suferit coliziuni. El se afiseaza in consola cand se mareste cu cate 5 unitati. 
+  
+Bonus: 
+    Creste dificultatea jocului pe masura ce creste punctajul jucatorului: 
+- creste viteza cu care se deplaseaza obstacolele 
