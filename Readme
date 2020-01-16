@@ -1,9 +1,4 @@
-Deaconu Andreea-Carina  
-334CC 
-  
-    Tema 1 EGC - Flappy Bird 
-  
-    Ca implementare am pornit de la laboratorul 3 rezolvat. In CreatePrimitives am scris functii pentru crearea: unui dreptunghi, unui cerc si unui triunghi, asemanatoare cu functia deja existenta CreateSquare. 
+  Ca implementare am pornit de la laboratorul 3 rezolvat. In CreatePrimitives am scris functii pentru crearea: unui dreptunghi, unui cerc si unui triunghi, asemanatoare cu functia deja existenta CreateSquare. 
 Cu tasta R se reseteaza jocul, iar cu Q se inchide. 
   
 Desenarea pasarii:  
@@ -30,6 +25,5 @@ Detectarea coliziunii:
 Updatarea scorului: 
     Initial, scorul e 0, iar acesta se mareste pe masura ce trece timpul si pasarea nu a suferit coliziuni. El se afiseaza in consola cand se mareste cu cate 5 unitati. 
   
-Bonus: 
     Creste dificultatea jocului pe masura ce creste punctajul jucatorului: 
 - creste viteza cu care se deplaseaza obstacolele 
